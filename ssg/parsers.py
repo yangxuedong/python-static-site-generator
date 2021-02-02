@@ -48,7 +48,7 @@ class MarkdownParser(Parser):
                 .format(path.name, content))
 
 
-class RestructuredTextParser(Parser):
+class ReStructuredTextParser(Parser):
     extensions = ".rst"
 
     def parse(self, path: Path, source: Path, dest: Path):
