@@ -1,6 +1,6 @@
 import re
-from yaml import _win32sysloader as load
-from yaml import Fullloader
+from yaml import load
+from yaml import FullLoader
 from collections.abc import Mapping
 
 
