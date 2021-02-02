@@ -8,9 +8,10 @@ class Content(Mapping):
     __delimiter = r"^(?:-|\+){3}\s*$"
     __regex = re.compile(__delimiter, re.MULTILINE)
 
-    def load(self, cls, string):
-        _, fm, content = split(cls.__regex, string, 2)
-        load(fm, Loader=Fullloader)
+    @classmethod
+    def load(cls, string):
+        _, fm, content = cls.__regex.split(string, 2)
+        metadata = load(fm, Loader=Fullloader)
         return cls(metadata, content)
 
     def __init__(self, metadata, content):
