@@ -24,13 +24,14 @@ class Content(Mapping):
 
     @property
     def type(self):
-        if type in self.data:
+        if "type" in self.data:
             return self.data["type"]
         else:
             return None
 
-    def setter(self):
-        return self.type()
+    @type.setter
+    def type(self, type):
+        self.data["type"] = type
 
-    def __getitem__(self, item):
-        return self.data(item)
+    def __getitem__(self, key):
+        return self.data[key]
